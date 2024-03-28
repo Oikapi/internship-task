@@ -7,10 +7,10 @@
 # Игнорирование временных файлов и папок
 /tmp/
 /cache/
-/logs/
-
+/backend/logs/
+/backend/mysql/
 # Игнорирование зависимостей и модулей
-/vendor/
+/backend/www/task.loc/vendor/
 /frontend/node_modules/
 
 # Игнорирование сгенерированных файлов

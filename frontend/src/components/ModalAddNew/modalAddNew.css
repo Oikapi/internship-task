@@ -1,0 +1,32 @@
+.Modal-Add-New {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #000;
+    box-shadow: 24;
+    padding: 20px 40px 40px 30px;
+}
+
+.Modal-Table-form {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.Modal-Table-form label {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.input-required {
+    display: flex;
+    gap: 10px;
+}

@@ -5,7 +5,9 @@ import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
 interface WebpackConfig extends Configuration {
   devServer?: DevServerConfiguration;
+  proxy?: Array<{ context: string | string[]; target: string; secure?: boolean; changeOrigin?: boolean; pathRewrite?: Record<string, string> }>;
 }
+
 
 const config: WebpackConfig = {
   entry: './src/index.tsx',
@@ -42,6 +44,15 @@ const config: WebpackConfig = {
     compress: true,
     port: 9000,
     historyApiFallback: true,
+    proxy: [
+      {
+        context: ['/api/**'],
+        target: 'http://task.loc',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: { '^/api': '' }, // Здесь происходит подмена
+      },
+    ]
 },
     mode: 'development',
 };

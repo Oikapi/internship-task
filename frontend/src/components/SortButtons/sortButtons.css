@@ -1,0 +1,8 @@
+.Sort-buttons {
+    border: none;
+    background-color: transparent;
+}
+
+.Sort-buttons:hover {
+    cursor: pointer;
+}

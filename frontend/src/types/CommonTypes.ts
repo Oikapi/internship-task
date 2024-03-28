@@ -1,12 +1,23 @@
-
-export interface TableProps {
-    tableData: TableDataItem[];
-}
-
-export interface TableDataItem {
+export type Product = {
+    id: number;
     name: string;
     price: number;
+    email: string;
     count: number;
 }
 
-export type OrderBy = 'asc' | 'desc';
+export type FormValues = {
+    name: string;
+    email: string;
+    count: string;
+    price: string;
+};
+
+
+export type SortInfo = {
+    field: 'name' | 'price';
+    order: SortOrder;
+};
+
+
+export type SortOrder = 'asc' | 'desc';
