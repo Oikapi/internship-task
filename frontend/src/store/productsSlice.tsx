@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk, AnyAction } from '@reduxjs/toolkit';
 import { Product } from '../types/CommonTypes';
 
-
-
 type ProductsState = {
     list: Product[];
     loading: boolean;

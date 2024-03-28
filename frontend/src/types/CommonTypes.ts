@@ -13,7 +13,6 @@ export type FormValues = {
     price: string;
 };
 
-
 export type SortInfo = {
     field: 'name' | 'price';
     order: SortOrder;

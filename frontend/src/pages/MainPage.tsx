@@ -6,12 +6,15 @@ import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { addNewProduct, editProduct, fetchProducts } from '../store/productsSlice';
 import { FormValues, Product } from '../types/CommonTypes';
+import { useAppSelector } from '../hooks/useAppSelector';
+import Spinner from '../components/Spinner/Spinner';
 // import { TableDataItem, OrderBy } from '@/types/CommonTypes';
 // import { sortTable } from '@/utils/sortTable';
 
 function MainPage() {
     const [isModalOpen, setModalOpen] = useState(false);
     const [filterInput, setFilterImput] = useState("");
+    const loading = useAppSelector(state => state.products.loading);
     const dispatch = useAppDispatch();
     const [modalInfo, setModalInfo] = useState<Product | any>()
 
@@ -30,20 +33,22 @@ function MainPage() {
     return (
         <>
             <Container maxWidth="md">
-                <TableMenu
-                    inputValue={filterInput}
-                    onInputChange={setFilterImput}
-                    onClick={onAddnew} />
-                <MainTable
-                    onEdit={onEdit}
-                    filterInput={filterInput} />
+                <Spinner active={loading}>
+                    <TableMenu
+                        inputValue={filterInput}
+                        onInputChange={setFilterImput}
+                        onClick={onAddnew} />
+                    <MainTable
+                        onEdit={onEdit}
+                        filterInput={filterInput} />
+                </Spinner>
             </Container>
             <ModalAddNew
                 onAddNew={(body) => dispatch(addNewProduct(body))}
                 onEdit={(body) => dispatch(editProduct(body))}
                 modalInfo={modalInfo}
                 isModalOpen={isModalOpen}
-                setModalOpen={setModalOpen} 
+                setModalOpen={setModalOpen}
             />
         </>
     )
